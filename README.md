@@ -21,6 +21,12 @@ are possible.
          die "Cannot load libsndfile";
      }
 
+The case above can be more simply written as:
+
+     library-check('libsndfile', :exception);
+
+Which will throw an ```X::NoLibrary``` exception rather than return False.
+
 The implementation is somewhat of a hack currently and definitely shouldn't
 be taken as an example of nice Perl 6 code.
 

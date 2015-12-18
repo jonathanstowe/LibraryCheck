@@ -26,6 +26,10 @@ shared library is available and can be used by NativeCall.
 It exports a single function 'library-exists' that returns a boolean to
 indicate whether the named shared library can be loaded and used.
 
+If the ':exception' adverb is passed to C<library-exists> then an
+exception (C<X::NoLibrary>) will be thrown if the library isn't availabe
+rather than returning False.
+
 This can be used in a builder to determine whether a module has a chance
 of working (and possibly aborting the build,) or in tests to cause the
 tests that may rely on a shared library to be skipped, but other use-cases
@@ -40,7 +44,15 @@ be taken as an example of nice Perl 6 code.
 module LibraryCheck {
    use NativeCall; 
 
-    sub library-exists(Str $lib --> Bool) is export {
+   class X::NoLibrary is Exception {
+       has Str $.library;
+
+       method message() returns Str {
+           "library { $!library } was not found";
+       }
+   }
+
+    sub library-exists(Str $lib, :$exception --> Bool) is export {
         my $rc = True;  
 
         my $name = ("a".."z","A".."Z").flat.pick(15).join("");
@@ -51,6 +63,10 @@ module LibraryCheck {
                     when /'Cannot locate native library'/  { $rc = False } 
                     default { $rc = True } 
                 } 
+        }
+
+        if not $rc and $exception {
+            X::NoLibrary.new(library => $lib).throw;
         }
         $rc; 
     } 
