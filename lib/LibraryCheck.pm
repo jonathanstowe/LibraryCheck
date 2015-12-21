@@ -55,6 +55,7 @@ module LibraryCheck {
     sub library-exists(Str $lib, :$exception --> Bool) is export {
         my $rc = True;  
 
+        use MONKEY-SEE-NO-EVAL;
         my $name = ("a".."z","A".."Z").flat.pick(15).join("");
         my $f = EVAL("sub $name\(\) is native(\{'$lib'\}) \{ * \}");
         try { 
@@ -68,6 +69,7 @@ module LibraryCheck {
         if not $rc and $exception {
             X::NoLibrary.new(library => $lib).throw;
         }
+        no MONKEY-SEE-NO-EVAL;
         $rc; 
     } 
 }
