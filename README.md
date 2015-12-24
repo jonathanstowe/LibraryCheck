@@ -17,13 +17,13 @@ are possible.
 
      use LibraryCheck;
 
-     if !library-exists('libsndfile') {
-         die "Cannot load libsndfile";
+     if !library-exists('sndfile', v1) {
+         die "Cannot load sndfile";
      }
 
 The case above can be more simply written as:
 
-     library-check('libsndfile', :exception);
+     library-check('sndfile',v1, :exception);
 
 Which will throw an ```X::NoLibrary``` exception rather than return False.
 
