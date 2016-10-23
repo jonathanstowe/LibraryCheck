@@ -4,6 +4,18 @@ Determine whether a shared library is available to be loaded by Perl 6
 
 [![Build Status](https://travis-ci.org/jonathanstowe/LibraryCheck.svg?branch=master)](https://travis-ci.org/jonathanstowe/LibraryCheck)
 
+## Synopsis
+
+```perl6
+
+     use LibraryCheck;
+
+     if !library-exists('sndfile', v1) {
+         die "Cannot load sndfile";
+     }
+
+```
+
 ## Description
 
 This module provides a mechanism that will determine whether a named
