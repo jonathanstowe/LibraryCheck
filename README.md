@@ -46,34 +46,34 @@ be taken as an example of nice Perl 6 code.
 
 ## Installation
 
-Assuming you have a working perl6 installation you should be able to
-install this with *ufo* :
-
-    ufo
-    make test
-    make install
-
-*ufo* can be installed with *panda* for rakudo:
-
-    panda install ufo
-
-Or you can install directly with "panda":
+Assuming you have a working Rakudo perl6 installation you should be able to
+install this with either *zef* or *panda* :
 
     # From the source directory
    
     panda install .
 
+    # or
+
+    zef install .
+
     # Remote installation
 
     panda install LibraryCheck
+
+    # or
+
+    zef install LibraryCheck
 
 Other install mechanisms may be become available in the future.
 
 ## Support
 
-This should be considered experimental software until such time that
-Perl 6 reaches an official release.  However suggestions/patches are
-welcomed via github at https://github.com/jonathanstowe/LibraryCheck/issues
+Suggestions/patches are welcomed via github at
+https://github.com/jonathanstowe/LibraryCheck/issues
+
+I'd be particularly interested in having it work properly on all the
+platforms that rakudo will work on.
 
 ## Licence
 
