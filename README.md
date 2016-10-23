@@ -2,6 +2,8 @@
 
 Determine whether a shared library is available to be loaded by Perl 6
 
+[![Build Status](https://travis-ci.org/jonathanstowe/LibraryCheck.svg?branch=master)](https://travis-ci.org/jonathanstowe/LibraryCheck)
+
 ## Description
 
 This module provides a mechanism that will determine whether a named
