@@ -49,7 +49,7 @@ be taken as an example of nice Perl 6 code.
 =end pod
 
 module LibraryCheck {
-   use NativeCall; 
+   use NativeCall :TEST;
 
    class X::NoLibrary is Exception {
        has Str $.library;
@@ -62,9 +62,10 @@ module LibraryCheck {
     sub library-exists(Str $lib, Version $v = v1, :$exception --> Bool) is export {
         my $rc = True;  
 
-        use MONKEY-SEE-NO-EVAL;
-        my $name = ("a".."z","A".."Z").flat.pick(15).join("");
-        my $f = EVAL("sub $name\(\) is native('$lib', { $v.gist }) \{ * \}");
+        my $f = sub {};
+        my $soname = guess_library_name($lib, $v);
+        $f does NativeCall::Native[$f, $soname];
+
         try { 
                 $f(); 
                 CATCH { 
@@ -76,7 +77,6 @@ module LibraryCheck {
         if not $rc and $exception {
             X::NoLibrary.new(library => $lib).throw;
         }
-        no MONKEY-SEE-NO-EVAL;
         $rc; 
     } 
 }
