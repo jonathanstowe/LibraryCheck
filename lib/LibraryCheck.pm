@@ -49,36 +49,29 @@ be taken as an example of nice Perl 6 code.
 =end pod
 
 module LibraryCheck {
-    use NativeCall; 
+   use NativeCall :TEST;
 
-    class X::NoLibrary is Exception {
-        has Str $.library;
+   class X::NoLibrary is Exception {
+       has Str $.library;
 
-        method message() returns Str {
-            "library { $!library } was not found";
-        }
-    }
+       method message() returns Str {
+           "library { $!library } was not found";
+       }
+   }
 
     my Bool %test-result;
     sub library-exists(Str $lib, Version $v = v1, :$exception --> Bool) is export {
-        my $rc = True;  
-
         my $test-key = "$lib-{ $v.gist }";
-
-
-        if not %test-result{$test-key}:exists {
+	    if not %test-result{$test-key}:exists {
             %test-result{$test-key} = True;
-            use MONKEY-SEE-NO-EVAL;
-            my $name = ("a".."z","A".."Z").flat.pick(15).join("");
-            my &test-func = EVAL("sub $name\(\) is native('$lib', { $v.gist }) \{ * \}");
-            no MONKEY-SEE-NO-EVAL;
-        { 
-            test-func(); 
+            my $f = sub {};
+            my $soname = guess_library_name($lib, $v);
+            $f does NativeCall::Native[$f, $soname];
+            $f(); 
             CATCH { 
-                when /'Cannot locate native library'/  { %test-result{$test-key} = False } 
-                default { %test-result{$test-key} = True } 
+                when /'Cannot locate native library'/  { %test-result{$test-key} = False }
+                default { %test-result{$test-key} = True }
             } 
-        }
         }
 
         if not %test-result{$test-key} and $exception {
