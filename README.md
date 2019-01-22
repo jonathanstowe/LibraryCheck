@@ -71,4 +71,4 @@ platforms that rakudo will work on.
 
 Please see the [LICENCEi](LICENCE) file in the distribution
 
-© Jonathan Stowe 2015, 2016, 2017
+© Jonathan Stowe 2015 - 2019
