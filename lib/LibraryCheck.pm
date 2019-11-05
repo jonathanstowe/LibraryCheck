@@ -24,7 +24,7 @@ This module provides a mechanism that will determine whether a named
 shared library is available and can be used by NativeCall.
 
 It exports a single function 'library-exists' that returns a boolean to
-indicate whether the named shared library can be loaded and used. 
+indicate whether the named shared library can be loaded and used.
 The library name should be supplied without any (OS dependent,) "lib"
 prefix and no extension, (so e.g. 'crypt' for 'libcrypt.so' etc.)
 
@@ -62,21 +62,26 @@ module LibraryCheck {
     my Bool %test-result;
     sub library-exists(Str $lib, Version $v = v1, :$exception --> Bool) is export {
         my $test-key = "$lib-{ $v.gist }";
-	    if not %test-result{$test-key}:exists {
+        if not %test-result{$test-key}:exists {
             %test-result{$test-key} = True;
             my $f = sub {};
             my $soname = guess_library_name($lib, $v);
             $f does NativeCall::Native[$f, $soname];
-            $f(); 
-            CATCH { 
+            # This is required since 2019-10-13
+            # will remove when there is a new release of Rakudo
+            if $f.^can('setup-nativecall') {
+                $f.setup-nativecall;
+            }
+            $f();
+            CATCH {
                 when /'Cannot locate native library'/  { %test-result{$test-key} = False }
                 default { %test-result{$test-key} = True }
-            } 
+            }
         }
 
         if not %test-result{$test-key} and $exception {
             X::NoLibrary.new(library => $lib).throw;
         }
         %test-result{$test-key};
-    } 
+    }
 }
