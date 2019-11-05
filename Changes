@@ -1,3 +1,6 @@
+v0.0.9      Tue  5 Nov 15:22:57 GMT 2019
+    * Needs to call setup-nativecall() for newer rakudo
+    * A few small renaming changes
 v0.0.8		Tue 22 Jan 21:21:05 GMT 2019
 	* Spring clean and upload to CPAN
 	* Get rid of EVAL from @cono

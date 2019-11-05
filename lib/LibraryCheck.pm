@@ -44,7 +44,7 @@ are possible.
 
 
 The implementation is somewhat of a hack currently and definitely shouldn't
-be taken as an example of nice Perl 6 code.
+be taken as an example of nice Raku code.
 
 =end pod
 

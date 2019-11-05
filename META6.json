@@ -1,6 +1,6 @@
 {
   "name": "LibraryCheck",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "auth": "github:jonathanstowe",
   "api": "1.0",
   "description": "Quick hack to determine whether a shared libray is present",
@@ -10,6 +10,7 @@
     "bugtracker": "https://github.com/jonathanstowe/LibraryCheck/issues"
   },
   "perl": "6.*",
+  "raku": "6.*",
   "resources": [ ],
   "depends": [ ],
   "build-depends": [ ],
@@ -28,5 +29,5 @@
   "authors": [
     "Jonathan Stowe <jns+git@gellyfish.co.uk>"
   ],
-  "meta-version": "0"
+  "meta-version": "1"
 }

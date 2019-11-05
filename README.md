@@ -1,6 +1,6 @@
 # LibraryCheck
 
-Determine whether a shared library is available to be loaded by Perl 6
+Determine whether a shared library is available to be loaded by Raku
 
 [![Build Status](https://travis-ci.org/jonathanstowe/LibraryCheck.svg?branch=master)](https://travis-ci.org/jonathanstowe/LibraryCheck)
 
@@ -42,11 +42,11 @@ The case above can be more simply written as:
 Which will throw an ```X::NoLibrary``` exception rather than return False.
 
 The implementation is somewhat of a hack currently and definitely shouldn't
-be taken as an example of nice Perl 6 code.
+be taken as an example of nice Raku code.
 
 ## Installation
 
-Assuming you have a working Rakudo perl6 installation you should be able to
+Assuming you have a working Rakudo installation you should be able to
 install this with *zef* :
 
     # From the source directory
