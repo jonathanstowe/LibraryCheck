@@ -1,3 +1,5 @@
+v0.0.10		Mon 29 Mar 11:14:39 BST 2021
+	* Spring clean and switch to GH actions
 v0.0.9      Tue  5 Nov 15:22:57 GMT 2019
     * Needs to call setup-nativecall() for newer rakudo
     * A few small renaming changes

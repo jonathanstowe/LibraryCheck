@@ -1,6 +1,6 @@
 {
   "name": "LibraryCheck",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "auth": "github:jonathanstowe",
   "api": "1.0",
   "description": "Quick hack to determine whether a shared libray is present",

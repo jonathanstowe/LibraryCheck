@@ -2,11 +2,11 @@
 
 Determine whether a shared library is available to be loaded by Raku
 
-[![Build Status](https://travis-ci.org/jonathanstowe/LibraryCheck.svg?branch=master)](https://travis-ci.org/jonathanstowe/LibraryCheck)
+![Build Status](https://github.com/jonathanstowe/LibraryCheck/workflows/CI/badge.svg)
 
 ## Synopsis
 
-```perl6
+```raku
 use LibraryCheck;
 
 if !library-exists('sndfile', v1) {
@@ -40,7 +40,7 @@ exception (`X::NoLibrary`) will be thrown if the library isn't available
 rather than returning `False`. So the case above can be more simply
 written as:
 
-```perl6
+```raku
 library-check('sndfile', v1, :exception);
 ```
 
@@ -64,14 +64,12 @@ Other install mechanisms may be become available in the future.
 
 ## Support
 
-Suggestions/patches are welcomed via github at
-https://github.com/jonathanstowe/LibraryCheck/issues
+Suggestions/patches are welcomed via github at https://github.com/jonathanstowe/LibraryCheck/issues
 
-I'd be particularly interested in having it work properly on all the
-platforms that rakudo will work on.
+I'd be particularly interested in having it work properly on all the platforms that rakudo will work on.
 
 ## Licence
 
 Please see the [LICENCE](LICENCE) file in the distribution.
 
-© Jonathan Stowe 2015 - 2019
+© Jonathan Stowe 2015 - 2021

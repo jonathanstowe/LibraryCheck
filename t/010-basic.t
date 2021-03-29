@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 use v6;
 
@@ -14,4 +14,4 @@ lives-ok { library-exists('crypt', :exception) }, "ok for a known existing libra
 throws-like {  library-exists('XzippyYayaya', :exception) }, X::NoLibrary, "bogus one throws X::NoLibrary with :exception";
 
 done-testing();
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku

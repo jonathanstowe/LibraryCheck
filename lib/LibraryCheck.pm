@@ -8,7 +8,7 @@ LibraryCheck - Determine whether a shared library is available to be loaded
 
 =head1 SYNOPSIS
 
-=begin code :lang<perl6>
+=begin code :lang<raku>
 
 use LibraryCheck;
 
@@ -44,7 +44,7 @@ exception (C<X::NoLibrary>) will be thrown if the library isn't available
 rather than returning C<False>. So the case above can be more simply
 written as:
 
-=for code :lang<perl6>
+=for code :lang<raku>
 library-check('sndfile', v1, :exception);
 
 
