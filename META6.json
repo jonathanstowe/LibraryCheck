@@ -1,33 +1,35 @@
 {
-  "name": "LibraryCheck",
-  "version": "0.0.10",
-  "auth": "github:jonathanstowe",
-  "api": "1.0",
-  "description": "Quick hack to determine whether a shared libray is present",
-  "source-url": "git://github.com/jonathanstowe/LibraryCheck.git",
-  "support": {
-    "source": "git://github.com/jonathanstowe/LibraryCheck.git",
-    "bugtracker": "https://github.com/jonathanstowe/LibraryCheck/issues"
-  },
-  "perl": "6.*",
-  "raku": "6.*",
-  "resources": [ ],
-  "depends": [ ],
-  "build-depends": [ ],
-  "test-depends": [
-    "Test"
+  "version": "0.0.11",
+  "depends": [
   ],
-  "author": "Jonathan Stowe <jns+git@gellyfish.co.uk>",
+  "meta-version": "1",
+  "api": "1.0",
+  "build-depends": [
+  ],
+  "source-url": "git://github.com/jonathanstowe/LibraryCheck.git",
+  "name": "LibraryCheck",
+  "raku": "6.*",
+  "provides": {
+    "LibraryCheck": "lib/LibraryCheck.pm"
+  },
+  "license": "Artistic-2.0",
+  "resources": [
+  ],
+  "authors": [
+    "Jonathan Stowe <jns+git@gellyfish.co.uk>"
+  ],
   "tags": [
     "build",
     "utils"
   ],
-  "license": "Artistic-2.0",
-  "provides": {
-    "LibraryCheck": "lib/LibraryCheck.pm"
+  "support": {
+    "bugtracker": "https://github.com/jonathanstowe/LibraryCheck/issues",
+    "source": "git://github.com/jonathanstowe/LibraryCheck.git"
   },
-  "authors": [
-    "Jonathan Stowe <jns+git@gellyfish.co.uk>"
-  ],
-  "meta-version": "1"
+  "auth": "zef:jonathanstowe",
+  "author": "Jonathan Stowe <jns+git@gellyfish.co.uk>",
+  "description": "Quick hack to determine whether a shared libray is present",
+  "test-depends": [
+    "Test"
+  ]
 }

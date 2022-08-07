@@ -1,3 +1,5 @@
+v0.0.11	Sun  7 Aug 09:48:07 BST 2022
+	* Upload to zef repository
 v0.0.10		Mon 29 Mar 11:14:39 BST 2021
 	* Spring clean and switch to GH actions
 v0.0.9      Tue  5 Nov 15:22:57 GMT 2019
@@ -15,3 +17,4 @@ v0.0.5		Mon Dec 21 14:56:58 2015 +0000
 	* Add :exception adverb
 	* remove the "use lib 'lib'" from before the "use Test"
 	* done -> done-testing
+
