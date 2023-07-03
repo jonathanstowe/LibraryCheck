@@ -24,7 +24,7 @@
       "purpose": null,
       "children": [
         {
-          "name": "LibraryCheck.pm",
+          "name": "LibraryCheck.rakumod",
           "type": "file"
         }
       ],
